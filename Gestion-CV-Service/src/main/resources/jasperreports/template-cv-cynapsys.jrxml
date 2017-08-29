@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="template-cv-cynapsys" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="9ddd6149-e59e-4e24-8140-871b6267d4ea">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Heading 1" fontSize="16" isBold="true"/>
+	<style name="Heading 2" fontSize="14" isBold="true" isItalic="true"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#009900"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#009900"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#009900"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#009900"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="2e748a66-1df3-4478-a68a-cb278f4516ef"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Chams Eddine\\Desktop\\template CV cynapsys\\"]]></defaultValueExpression>
+	</parameter>
+	<field name="nom" class="java.lang.String"/>
+	<field name="niveauExperience" class="java.lang.String"/>
+	<field name="listLangue" class="java.util.List"/>
+	<field name="listCompetence" class="java.util.List"/>
+	<field name="listExperience" class="java.util.List"/>
+	<field name="listCertification" class="java.util.List"/>
+	<field name="listFormation" class="java.util.List"/>
+	<title>
+		<band height="80" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="11" width="225" height="69" uuid="6e7fe423-d04e-402e-988b-532a7166cacd"/>
+				<imageExpression><![CDATA["C:\\Users\\Chams Eddine\\Desktop\\template CV cynapsys\\logo-cynapsys.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<detail>
+		<band height="585" splitType="Stretch">
+			<subreport>
+				<reportElement positionType="Float" x="24" y="67" width="495" height="59" isRemoveLineWhenBlank="true" uuid="19186ddb-de7e-4d19-9004-cb9d0764b17d"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listFormation})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "template-cv-cynapsys_formations.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="24" y="221" width="495" height="60" isRemoveLineWhenBlank="true" uuid="095fd347-fe50-4cda-8902-761d3a7c9922"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listCertification})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "template-cv-cynapsys_certification.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="24" y="313" width="495" height="103" isRemoveLineWhenBlank="true" uuid="b7e141b9-044f-4671-b6ce-c2ddffdbd2ba"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listCompetence})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "template-cv-cynapsys_competence.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="24" y="142" width="495" height="60" isRemoveLineWhenBlank="true" uuid="c8171789-02ae-466e-9d5d-8d515f6cf218"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listLangue})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "template-cv-cynapsys_langue.jasper"]]></subreportExpression>
+			</subreport>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Heading 2" x="341" y="47" width="199" height="20" uuid="e23bfe6e-4a06-4f86-a342-8f4251b6d20f"/>
+				<textFieldExpression><![CDATA[$F{niveauExperience}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Heading 1" x="288" y="11" width="252" height="23" uuid="f3a5062b-7851-4d64-a3ce-1306d879a3d5"/>
+				<textFieldExpression><![CDATA[$F{nom}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement positionType="Float" x="24" y="442" width="495" height="143" isRemoveLineWhenBlank="true" uuid="a1cfe588-995a-4051-8207-a4c3c4a282da"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listExperience})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "template-cv-cynapsys_experience.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

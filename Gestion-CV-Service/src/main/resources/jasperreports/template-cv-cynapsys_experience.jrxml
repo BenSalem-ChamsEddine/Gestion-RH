@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="template-cv-cynapsys_experience" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="b02b82f7-585f-4f20-910a-c9e4499ff2a7">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Heading 1" fontSize="16" isBold="true"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Chams Eddine\\Desktop\\template CV cynapsys\\"]]></defaultValueExpression>
+	</parameter>
+	<field name="listTache" class="java.util.List"/>
+	<field name="titreProjet" class="java.lang.String"/>
+	<field name="client" class="java.lang.String"/>
+	<field name="dateExp" class="java.lang.String"/>
+	<field name="equipeProjet" class="java.lang.String"/>
+	<field name="technologiesPro" class="java.lang.String"/>
+	<title>
+		<band height="29" splitType="Stretch">
+			<staticText>
+				<reportElement x="22" y="0" width="362" height="29" forecolor="#339900" uuid="f19b88b2-1cd8-4d56-a960-555825f7bd01"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="20" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[EXPERIENCES PROFESSIONELLES]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="393" splitType="Stretch">
+			<rectangle>
+				<reportElement x="22" y="10" width="504" height="73" backcolor="#8FCF50" uuid="47a26fca-7d5f-4676-a105-a1ab7f5f1673"/>
+			</rectangle>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Heading 1" x="22" y="10" width="233" height="26" uuid="fbbac39f-60a2-465c-9305-9479ee5050ce"/>
+				<textElement verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{client}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="392" y="60" width="134" height="23" uuid="71242173-bd3d-4cfc-9991-93e21ead893e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dateExp}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="22" y="100" width="77" height="31" uuid="d82f8554-463f-4493-8288-24bb877ac9db"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Projet :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="99" y="100" width="427" height="31" uuid="cfe10c29-380f-4223-bee2-1bd0dd177a39"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{titreProjet}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Heading 1" x="22" y="145" width="149" height="31" uuid="066bdfda-8def-4848-b2b7-18dee8fa984b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tâches réalisées : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="239" width="128" height="25" uuid="7ac37ee9-68eb-4726-98ec-163b8fac42e0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Equipe projet :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="150" y="239" width="376" height="25" uuid="2d65f710-849e-427a-bf59-5f42435729fe"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{equipeProjet}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="22" y="284" width="198" height="28" uuid="ecdeb8a7-7536-4380-9900-ebdc71cae93c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Environnement technique :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="220" y="284" width="306" height="28" uuid="8a7e9e61-12ce-43d5-a050-6b19b18c4f2a"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{technologiesPro}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="22" y="176" width="504" height="39" uuid="9f3d337e-077a-4aa5-9171-43073ed6f549"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listTache})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "template-cv-cynapsys_experience_tache.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

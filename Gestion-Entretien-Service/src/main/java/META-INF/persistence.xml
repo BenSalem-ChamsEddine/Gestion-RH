@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="CynGeekLab">
+		<class>de.cynapsys.GestionEntretienService.entities.Candidat</class>
+		<class>de.cynapsys.GestionEntretienService.entities.Entretien</class>
+		<class>de.cynapsys.GestionEntretienService.entities.Entretienexamen</class>
+		<class>de.cynapsys.GestionEntretienService.entities.Examen</class>
+		<class>de.cynapsys.GestionEntretienService.entities.Historique</class>
+		<class>de.cynapsys.GestionEntretienService.entities.Proposition</class>
+		<class>de.cynapsys.GestionEntretienService.entities.Question</class>
+		<class>de.cynapsys.GestionEntretienService.entities.Questionexamen</class>
+		<class>de.cynapsys.GestionEntretienService.entities.Rendezvous</class>
+		<class>de.cynapsys.GestionEntretienService.entities.Employe</class>
+	</persistence-unit>
+</persistence>
