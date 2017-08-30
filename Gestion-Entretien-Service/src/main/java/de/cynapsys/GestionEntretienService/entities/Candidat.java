@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
-import javax.validation.constraints.Size;
+//import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -25,7 +25,7 @@ public class Candidat implements Serializable {
 
 	private Long cin;
 
-	@Size(max = 200000)
+//	@Size(max = 200000)
 	private String competences;
 
 	private String cv;

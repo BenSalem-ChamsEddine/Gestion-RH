@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
-import javax.validation.constraints.Size;
+//import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.List;
 
@@ -22,7 +22,7 @@ public class Question implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@Size(max = 200000)
+//	@Size(max = 200000)
 	private String enonce;
 
 	private String niveau;

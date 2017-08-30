@@ -1,0 +1,16 @@
+#server.port=8081
+#
+#spring.datasource.url=jdbc:postgresql://localhost:5432/gestioncv
+#
+#management.security.enabled=false
+
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/gestioncv
+
+management:
+  security:
+    enabled: false

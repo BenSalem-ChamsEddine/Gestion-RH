@@ -1,0 +1,58 @@
+#server.port=8082
+#
+#security.user.name=admin
+#security.user.password=123
+#
+#spring.datasource.url=jdbc:postgresql://localhost:5432/mycyn
+#
+## MULTIPART (MultipartProperties)
+#spring.http.multipart.enabled=true
+## Enable support of multi-part uploads.
+## spring.http.multipart.file-size-threshold=3 # Threshold after which files will be written to disk. Values can use the suffixed "MB" or "KB" to indicate a Megabyte or Kilobyte size.
+#
+## Intermediate location of uploaded files.
+#spring.http.multipart.max-file-size=10MB
+## Max file size. Values can use the suffixed "MB" or "KB" to indicate a Megabyte or Kilobyte size.
+#spring.http.multipart.max-request-size=10MB
+## Max request size. Values can use the suffixed "MB" or "KB" to indicate a Megabyte or Kilobyte size.
+#spring.http.multipart.resolve-lazily=false
+## Whether to resolve the multipart request lazily at the time of file or parameter access.
+#
+#
+#spring.mail.host=smtp.gmail.com
+#spring.mail.port=587
+#spring.mail.username= bensalemchams@gmail.com
+#spring.mail.password= chams1991
+#spring.mail.properties.mail.smtp.starttls.enable=true
+
+server:
+    port: 8082
+
+security:
+    user:
+        name: admin
+        password: 123
+
+management:
+  security:
+    enabled: false
+
+spring:
+    datasource:
+        url: jdbc:postgresql://localhost:5432/mycyn
+    http:
+        multipart:
+            enabled: true
+            max-file-size: 10MB
+            max-request-size: 10MB
+            resolve-lazily: false
+    mail:
+        host: smtp.gmail.com
+        port: 587
+        username: bensalemchams@gmail.com
+        password: chams1991
+        properties:
+            mail:
+                smtp:
+                    starttls:
+                        enable: true

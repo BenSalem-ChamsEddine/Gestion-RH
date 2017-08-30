@@ -1,0 +1,16 @@
+#server.port=8084
+#
+#spring.datasource.driver-class-name=org.postgresql.Driver
+#spring.datasource.url=jdbc:postgresql://localhost:5432/mycyn
+#spring.datasource.username=postgres
+#spring.datasource.password=chams1991
+
+server:
+    port: 8084
+
+spring:
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        url: jdbc:postgresql://localhost:5432/mycyn
+        username: postgres
+        password: chams1991

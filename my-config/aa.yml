@@ -1,27 +1,9 @@
-#server.port=8080
-#server.address=10.1.1.112
-
+#server.port=8082
+#
 #security.user.name=admin
 #security.user.password=123
-
-spring.application.name=gestion-entretien-service
-spring.cloud.config.uri=http://localhost:8888
-
-#spring.datasource.driver-class-name=org.postgresql.Driver
+#
 #spring.datasource.url=jdbc:postgresql://localhost:5432/mycyn
-#spring.datasource.username=postgres
-#spring.datasource.password=chams1991
-#
-#spring.datasource.dbcp2.test-while-idle=true
-#spring.datasource.dbcp2.validation-query=SELECT 1
-#
-#spring.jpa.show-sql=true
-#spring.jpa.hibernate.ddl-auto=update
-#
-#spring.jpa.hibernate.naming.implicit-strategy=org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyHbmImpl
-#spring.jpa.hibernate.naming.physical-strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
-#
-#spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
 #
 ## MULTIPART (MultipartProperties)
 #spring.http.multipart.enabled=true
@@ -42,3 +24,34 @@ spring.cloud.config.uri=http://localhost:8888
 #spring.mail.username= bensalemchams@gmail.com
 #spring.mail.password= chams1991
 #spring.mail.properties.mail.smtp.starttls.enable=true
+
+server:
+    port: 8082
+
+security:
+    user:
+        name: admin
+        password: 123
+
+spring:
+    datasource:
+        url: jdbc:postgresql://localhost:5432/mycyn
+
+spring:
+    http:
+        multipart:
+            enabled: true
+            max-file-size: 10MB
+            max-request-size: 10MB
+            resolve-lazily: false
+spring:
+    mail:
+        host: smtp.gmail.com
+        port: 587
+        username: bensalemchams@gmail.com
+        password: chams1991
+        properties:
+            mail:
+                smtp:
+                    starttls:
+                        enable: true

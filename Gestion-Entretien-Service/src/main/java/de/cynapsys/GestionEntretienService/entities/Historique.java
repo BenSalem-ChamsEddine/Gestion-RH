@@ -1,7 +1,7 @@
 package de.cynapsys.GestionEntretienService.entities;
 
 import javax.persistence.*;
-import javax.validation.constraints.Size;
+//import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 
@@ -18,7 +18,7 @@ public class Historique implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@Size(max = 200000)
+//	@Size(max = 200000)
 	private String reponses;
 
 	//bi-directional many-to-one association to Candidat

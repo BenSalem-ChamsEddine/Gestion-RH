@@ -3,7 +3,7 @@ package de.cynapsys.GestionEntretienService.entities;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
-import javax.validation.constraints.Size;
+//import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 
@@ -20,7 +20,7 @@ public class Proposition implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@Size(max = 200000)
+//	@Size(max = 200000)
 	private String enonce;
 
 	private Boolean validitee;
