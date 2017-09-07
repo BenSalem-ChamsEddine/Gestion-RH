@@ -1,0 +1,37 @@
+version: "3"
+
+services:
+  configservice:
+    build: ./Config-Service
+    volumes:
+     - ./Config-Service:/app
+    ports:
+      - "8888:8888"
+    expose:
+     - "8888"
+
+  eurekaservice:
+    build: ./Eureka-Service
+    volumes:
+     - ./Eureka-Service:/app
+    depends_on:
+     - configservice
+    restart: unless-stopped
+    ports:
+      - "8761:8761"
+    expose:
+     - "8761"
+
+  gestioncvservice:
+    build: ./Gestion-CV-Service
+    volumes:
+     - ./Gestion-CV-Service:/app
+    depends_on:
+     - configservice
+     - eurekaservice
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
+    expose:
+     - "8081"
+

@@ -7,4 +7,7 @@ spring:
     name: gestion-cv-service
   cloud:
     config:
-      uri: http://localhost:8888
+      uri: http://172.17.0.1:8888
+      retry:
+        maxAttempts: 20
+      fail-fast: true
