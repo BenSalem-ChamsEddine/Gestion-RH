@@ -36,3 +36,16 @@ services:
     expose:
      - "8081"
 
+  proxyservice:
+    build: ./Proxy-Service
+    volumes:
+     - ./Proxy-Service:/app
+    depends_on:
+     - configservice
+     - eurekaservice
+     - gestioncvservice
+    restart: unless-stopped
+    ports:
+      - "9999:9999"
+    expose:
+     - "9999"
