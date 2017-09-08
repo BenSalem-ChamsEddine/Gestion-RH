@@ -9,7 +9,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://172.17.0.1:5432/gestioncv
+    url: jdbc:postgresql://172.16.39.46:5432/gestioncv
 
 management:
   security:

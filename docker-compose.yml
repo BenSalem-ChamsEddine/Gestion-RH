@@ -1,6 +1,7 @@
 version: "3"
 
 services:
+  
   configservice:
     build: ./Config-Service
     volumes:
