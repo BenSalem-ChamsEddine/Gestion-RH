@@ -36,6 +36,19 @@ services:
     expose:
      - "8081"
 
+  gestionentretienservice:
+    build: ./Gestion-Entretien-Service
+    volumes:
+     - ./Gestion-Entretien-Service:/app
+    depends_on:
+     - configservice
+     - eurekaservice
+    restart: unless-stopped
+    ports:
+      - "8082:8082"
+    expose:
+     - "8082"
+
   proxyservice:
     build: ./Proxy-Service
     volumes:
@@ -44,8 +57,17 @@ services:
      - configservice
      - eurekaservice
      - gestioncvservice
+     - gestionentretienservice
     restart: unless-stopped
     ports:
       - "9999:9999"
     expose:
      - "9999"
+
+  client:
+    build: ./ng2-admin
+    restart: unless-stopped
+    ports:
+        - "4200:4200"
+    expose:
+        - "4200"
