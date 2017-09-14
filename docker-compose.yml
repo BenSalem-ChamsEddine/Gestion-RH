@@ -64,8 +64,10 @@ services:
     expose:
      - "9999"
 
-  client:
+  ng2admin:
     build: ./ng2-admin
+    volumes:
+        - ./ng2-admin:/usr/src/app
     restart: unless-stopped
     ports:
         - "4200:4200"
