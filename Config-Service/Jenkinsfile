@@ -8,6 +8,7 @@ node {
         }
 
         stage('Build') {
+	  dir ('Config-Service') {
 
             sh 'mvn clean package'
 
@@ -16,7 +17,7 @@ node {
             print pom.version
 
             env.version = pom.version
-
+	  }
         }
 
         stage('Image') {
