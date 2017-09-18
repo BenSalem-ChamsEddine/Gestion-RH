@@ -24,7 +24,7 @@ node {
 
             dir ('Config-Service') {
 
-                def app = docker.build "configservice:${env.version}"
+                def app = docker.build "172.17.0.1/configservice:${env.version}"
 
                 app.push()
 
