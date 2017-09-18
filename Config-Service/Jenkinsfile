@@ -4,7 +4,6 @@ node {
         stage('Checkout') {
 
             git url: 'https://github.com/BenSalem-ChamsEddine/PFE.git', credentialsId:  'git-credit-ID', branch: 'master'
-	    cd Config-Service
 
         }
 
