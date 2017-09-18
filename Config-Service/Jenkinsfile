@@ -24,7 +24,7 @@ node {
 
             dir ('Config-Service') {
 
-                def app = docker.build "localhost:5000/configservice:${env.version}"
+                def app = docker.build "configservice:${env.version}"
 
                 app.push()
 
@@ -34,7 +34,7 @@ node {
 
         stage ('Run') {
 
-            docker.image("localhost:5000/configservice:${env.version}").run('-p 8888:8888 -h configservice --name configservice')
+            docker.image("configservice:${env.version}").run('-p 8888:8888 -h configservice --name configservice')
 
         }
 
