@@ -23,11 +23,12 @@ node {
         stage('Image') {
 
             dir ('Config-Service') {
+		docker.withRegistry('https://hub.docker.com/r/bensalemchamseddine/pfe/', 'BenSalemChamsEddine') {
 
-                def app = docker.build "172.17.0.1/configservice:${env.version}"
-
-                app.push()
-
+	                def app = docker.build "configservice:${env.version}"
+	
+	                app.push()
+		}
             }
 
         }
