@@ -4,7 +4,7 @@ node {
 
         stage('Checkout') {
 
-            git url: url: 'https://github.com/BenSalem-ChamsEddine/PFE.git', credentialsId:  'git-credit-ID', branch: 'master'
+            git url: 'https://github.com/BenSalem-ChamsEddine/PFE.git', credentialsId:  'git-credit-ID', branch: 'master'
 
         }
 
