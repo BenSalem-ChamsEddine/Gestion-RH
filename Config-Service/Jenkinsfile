@@ -1,0 +1,49 @@
+node {
+
+    withMaven(maven:'maven') {
+
+        stage('Checkout') {
+
+            git url: url: 'https://github.com/BenSalem-ChamsEddine/PFE.git', credentialsId:  '1f224fde-e483-40c9-aa40-e26c31877c97', branch: 'master'
+
+        }
+
+        stage('Build') {
+
+            sh 'mvn clean package'
+
+            def pom = readMavenPom file:'pom.xml'
+
+            print pom.version
+
+            env.version = pom.version
+
+        }
+
+        stage('Image') {
+
+            dir ('Config-Service') {
+
+                def app = docker.build "localhost:5000/configservice:${env.version}"
+
+                app.push()
+
+            }
+
+        }
+
+        stage ('Run') {
+
+            docker.image("localhost:5000/configservice:${env.version}").run('-p 8888:8888 -h configservice --name configservice')
+
+        }
+
+        stage ('Final') {
+
+            build job: 'Eureka-Service-Pipeline', wait: false
+
+        }      
+
+    }
+
+}
