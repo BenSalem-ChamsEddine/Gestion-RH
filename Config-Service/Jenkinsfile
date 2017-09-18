@@ -1,6 +1,5 @@
 node {
 
-    withMaven(maven:'maven') {
 
         stage('Checkout') {
 
@@ -10,7 +9,7 @@ node {
 
         stage('Build') {
 
-            sh 'mvn clean package'
+            sh 'mvnw clean package'
 
             def pom = readMavenPom file:'pom.xml'
 
@@ -43,7 +42,5 @@ node {
             build job: 'Eureka-Service-Pipeline', wait: false
 
         }      
-
-    }
 
 }
