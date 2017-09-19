@@ -64,10 +64,4 @@ services:
     expose:
      - "9999"
 
-  ng2admin:
-    build: ./ng2-admin
-    restart: unless-stopped
-    ports:
-        - "4200:4200"
-    expose:
-        - "4200"
+  

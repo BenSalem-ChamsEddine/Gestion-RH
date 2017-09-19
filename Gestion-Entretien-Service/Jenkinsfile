@@ -30,12 +30,6 @@ node {
 
         }
 
-        stage ('Run') {
-
-            docker.image("pfe_gestionentretienservice").run('-p 8082:8082 -t pfe_gestionentretienservice')
-
-        }
-
         stage ('Final') {
 
             build job: 'Proxy-Service-Pipeline', wait: false
