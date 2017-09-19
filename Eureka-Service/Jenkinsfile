@@ -32,7 +32,7 @@ node {
 
         stage ('Run') {
 
-            docker.image("pfe_eurekaservice").run('-p 8761:8761 -t pfe_eurekaservice')
+            docker.image("pfe_eurekaservice").run('-p 8761:8761 -t pfe_eurekaservice:latest')
 
         }
 
