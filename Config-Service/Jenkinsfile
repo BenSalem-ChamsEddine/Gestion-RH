@@ -38,7 +38,7 @@ node {
 
         stage ('Final') {
 
-            build job: 'Eureka-Service-Pipeline', wait: false
+            sh 'docker-compose up'
 
         }      
 
