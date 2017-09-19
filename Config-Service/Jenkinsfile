@@ -24,9 +24,8 @@ node {
 
             dir ('Config-Service') {
 
-	                def app = docker.build "configservice"
+	      docker.build "configservice"
 	
-	                app.push()
             }
 
         }
