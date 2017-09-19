@@ -23,19 +23,17 @@ node {
         stage('Image') {
 
             dir ('Config-Service') {
-		docker.withRegistry('bensalemchamseddine/pfe', 'dockerHub-credit-ID') {
 
 	                def app = docker.build "configservice"
 	
 	                app.push()
-		}
             }
 
         }
 
         stage ('Run') {
 
-            docker.image("configservice:${env.version}").run('-p 8888:8888 -h configservice --name configservice')
+            docker.image("configservice").run('-p 8888:8888 -h configservice --name configservice')
 
         }
 
