@@ -24,7 +24,7 @@ node {
 
             dir ('Config-Service') {
 
-	      docker.build "configservice"
+	      docker.build "pfe_configservice"
 	
             }
 
@@ -32,7 +32,7 @@ node {
 
         stage ('Run') {
 
-            docker.image("configservice").run('-p 8888:8888 -h configservice --name configservice')
+            docker.image("pfe_configservice").run('-p 8888:8888 -h pfe_configservice --name pfe_configservice')
 
         }
 
