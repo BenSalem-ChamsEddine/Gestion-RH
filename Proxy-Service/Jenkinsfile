@@ -1,0 +1,45 @@
+node {
+
+
+        stage('Checkout') {
+
+            git url: 'https://github.com/BenSalem-ChamsEddine/PFE.git', credentialsId:  'git-credit-ID', branch: 'master'
+
+        }
+
+        stage('Build') {
+	  dir ('Proxy-Service') {
+
+            sh 'mvn clean package'
+
+            def pom = readMavenPom file:'pom.xml'
+
+            print pom.version
+
+            env.version = pom.version
+	  }
+        }
+
+        stage('Image') {
+
+            dir ('Proxy-Service') {
+
+	      docker.build "pfe_proxyservice"
+	
+            }
+
+        }
+
+        stage ('Run') {
+
+            docker.image("pfe_proxyservice").run('-p 9999:9999 -t pfe_proxyservice')
+
+        }
+
+        stage ('Final') {
+
+            build job: 'Gestion-Entretien-Service-Pipeline', wait: false
+
+        }      
+
+}

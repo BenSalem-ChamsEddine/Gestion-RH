@@ -1,0 +1,45 @@
+node {
+
+
+        stage('Checkout') {
+
+            git url: 'https://github.com/BenSalem-ChamsEddine/PFE.git', credentialsId:  'git-credit-ID', branch: 'master'
+
+        }
+
+        stage('Build') {
+	  dir ('Gestion-CV-Service') {
+
+            sh 'mvn clean package'
+
+            def pom = readMavenPom file:'pom.xml'
+
+            print pom.version
+
+            env.version = pom.version
+	  }
+        }
+
+        stage('Image') {
+
+            dir ('Gestion-CV-Service') {
+
+	      docker.build "pfe_gestioncvservice"
+	
+            }
+
+        }
+
+        stage ('Run') {
+
+            docker.image("pfe_gestioncvservice").run('-p 8081:8081 -t pfe_gestioncvservice')
+
+        }
+
+        stage ('Final') {
+
+            build job: 'Gestion-Entretien-Service-Pipeline', wait: false
+
+        }      
+
+}
