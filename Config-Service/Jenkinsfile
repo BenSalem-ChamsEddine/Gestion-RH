@@ -30,6 +30,12 @@ node {
 
         }
 
+        stage ('Run') {
+
+            docker.image("pfe_configservice").run('-p 8888:8888 -t pfe_configservice')
+
+        }
+
         stage ('Final') {
 
             build job: 'Eureka-Service-Pipeline', wait: false

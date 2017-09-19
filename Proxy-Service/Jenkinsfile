@@ -28,6 +28,12 @@ node {
 	
             }
 
-        }     
+        }
+
+        stage ('Run') {
+
+            docker.image("pfe_proxyservice").run('-p 9999:9999 -t pfe_proxyservice')
+
+        }      
 
 }
