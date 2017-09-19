@@ -32,7 +32,7 @@ node {
 
         stage ('Run') {
 
-            docker.image("pfe_configservice").run('-p 8888:8888 -h pfe_configservice --name pfe_configservice')
+            docker.image("pfe_configservice").run('-p 8888:8888 -t pfe_configservice')
 
         }
 
