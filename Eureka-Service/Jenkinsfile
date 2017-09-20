@@ -38,7 +38,7 @@ node {
 
         stage ('Final') {
 
-            build job: 'Gestion-CV-Service-Pipeline', wait: false
+            build job: 'Proxy-Service-Pipeline', wait: false
 
         }      
 
