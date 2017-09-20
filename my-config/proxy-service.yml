@@ -3,8 +3,12 @@ server:
 
 eureka:
   client:
+    registerWithEureka: true
+    fetchRegistry: true
     serviceUrl:
       defaultZone: http://172.17.0.1:8761/eureka/
+  instance:
+    prefer-ip-address: true
 
 zuul:
   ignoredServices: '*'
@@ -15,3 +19,15 @@ zuul:
     gestionentretienservice:
       path: /gestion-entretien-service/v1/**
       serviceId: GESTION-ENTRETIEN-SERVICE
+
+ribbon:
+  ConnectTimeout: 20000
+  ReadTimeout: 60000
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 20000
