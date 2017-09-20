@@ -32,7 +32,7 @@ node {
 
         stage ('Run') {
 
-            docker.run('-p 8082:8082 -t pfe_gestionentretienservice:latest')
+            docker.image("pfe_gestionentretienservice").run('-p 8082:8082 -t pfe_gestionentretienservice:latest')
 
         }
 
