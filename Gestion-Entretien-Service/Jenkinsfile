@@ -24,7 +24,7 @@ node {
 
             dir ('Gestion-Entretien-Service') {
 
-	      app = docker.build "pfe_gestionentretienservice"
+	      app = docker.build "bensalemchamseddine/pfe/pfe_gestionentretienservice"
 	
             }
 
