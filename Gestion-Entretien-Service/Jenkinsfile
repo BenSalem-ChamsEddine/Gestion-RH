@@ -35,7 +35,7 @@ node {
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
-        docker.withRegistry('https://registry.hub.docker.com', 'dockerHub-credit-ID') {
+        docker.withRegistry('https://hub.docker.com/r/bensalemchamseddine/pfe/', 'dockerHub-credit-ID') {
 	    echo 'authentification successfull'
             app.push("pfe_gestionentretienservice")
             app.push("latest")
