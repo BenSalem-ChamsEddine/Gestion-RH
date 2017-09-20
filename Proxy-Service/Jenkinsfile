@@ -34,12 +34,6 @@ node {
 
             docker.image("pfe_proxyservice").run('-p 9999:9999 --expose=9999 -t pfe_proxyservice:latest')
 
-        }
-
-	stage ('Final') {
-
-            build job: 'Gestion-CV-Service-Pipeline', wait: false
-
         } 
 
 }

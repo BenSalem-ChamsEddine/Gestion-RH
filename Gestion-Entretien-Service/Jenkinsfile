@@ -36,4 +36,10 @@ node {
 
         }     
 
+        stage ('Final') {
+
+            build job: 'Proxy-Service-Pipeline', wait: false
+
+        }      
+
 }
