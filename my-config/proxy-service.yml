@@ -1,6 +1,11 @@
 server:
   port: 9999
 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://172.17.0.1:8761/eureka/
+
 zuul:
     host:
         connect-timeout-millis: 5000
@@ -13,9 +18,4 @@ hystrix:
         isolation:
           strategy: THREAD
           thread:
-            timeoutInMilliseconds: 20000``
-
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://0.0.0.0:8761/eureka/
+            timeoutInMilliseconds: 20000
