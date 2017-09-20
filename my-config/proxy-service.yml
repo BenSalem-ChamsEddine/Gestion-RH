@@ -4,13 +4,4 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://172.17.0.1:8761/eureka/
-
-hystrix:
-  command:
-    random-story-microserviceRibbonCommand:
-      execution:
-        isolation:
-          strategy: THREAD
-          thread:
-            timeoutInMilliseconds: 20000
+      defaultZone: http://172.17.0.1:8761
