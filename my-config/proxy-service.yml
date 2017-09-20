@@ -31,3 +31,10 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 20000
+endpoints:
+  restart:
+    activated: true
+  shutdown:
+    activated: true
+  health:
+    sensitive: true
