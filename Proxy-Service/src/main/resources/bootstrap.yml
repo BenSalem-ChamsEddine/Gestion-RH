@@ -7,8 +7,3 @@ spring:
       retry:
         maxAttempts: 20
       fail-fast: true
-      
-eureka:
-  client:
-    service-url:
-      defaultZone: http://172.17.0.1:8761/eureka/
