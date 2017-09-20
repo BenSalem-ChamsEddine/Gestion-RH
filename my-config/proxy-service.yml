@@ -21,8 +21,10 @@ zuul:
       serviceId: GESTION-ENTRETIEN-SERVICE
 
 ribbon:
-  ConnectTimeout: 20000
-  ReadTimeout: 60000
+  ConnectTimeout: 30000
+  ReadTimeout: 990000
+  eureka:
+    enabled: true
 
 hystrix:
   command:
