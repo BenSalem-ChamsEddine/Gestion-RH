@@ -14,10 +14,10 @@ zuul:
   ignoredServices: '*'
   routes:
     gestioncvservice:
-      path: /gestion-cv-service/v1/**
+      path: /gestion-cv-service/**
       serviceId: GESTION-CV-SERVICE
     gestionentretienservice:
-      path: /gestion-entretien-service/v1/**
+      path: /gestion-entretien-service/**
       serviceId: GESTION-ENTRETIEN-SERVICE
 
 ribbon:
