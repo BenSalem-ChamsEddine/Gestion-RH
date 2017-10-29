@@ -1,9 +1,11 @@
 package de.cynapsys.GestionEntretienService.serviceImpl;
 
 import de.cynapsys.GestionEntretienService.entities.Candidat;
+import de.cynapsys.GestionEntretienService.entities.Entretien;
 import de.cynapsys.GestionEntretienService.entities.Rendezvous;
 import de.cynapsys.GestionEntretienService.repositories.RendezVousRepository;
 import de.cynapsys.GestionEntretienService.services.CandidatService;
+import de.cynapsys.GestionEntretienService.services.EntretienService;
 import de.cynapsys.GestionEntretienService.services.RendezVousService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +29,9 @@ public class RendezVousServiceImpl implements RendezVousService {
     @Autowired
     CandidatService candidatService;
 
+    @Autowired
+    EntretienService entretienService;
+
     @Override
     public Rendezvous saveRendezVous(Rendezvous c) {
         Candidat candidat = candidatService.findById(c.getCandidat().getId());
@@ -36,9 +41,19 @@ public class RendezVousServiceImpl implements RendezVousService {
         rdvs.add(rendezvous);
         candidat.setRendezvouses(rdvs);
         rendezvous.setCandidat(candidat);
+
+        Entretien entretien = new Entretien();
+        entretien.setDate(rendezvous.getDateexamen());
+        entretien = entretienService.saveEntretien(entretien);
+        List<Entretien> entretiens = candidat.getEntretiens();
+        entretiens.add(entretien);
+        candidat.setEntretiens(entretiens);
+        entretien.setCandidat(candidat);
+
         candidatService.saveCandidat(candidat);
         rendezVousRepository.save(rendezvous);
-
+        entretienService.updateEntretien(entretien);
+        
         emailSenderService.sendRdv(rendezvous);
         return rendezvous;
     }
