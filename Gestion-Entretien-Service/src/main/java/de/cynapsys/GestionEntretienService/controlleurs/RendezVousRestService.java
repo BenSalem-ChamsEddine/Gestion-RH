@@ -1,7 +1,9 @@
 package de.cynapsys.GestionEntretienService.controlleurs;
 
 import de.cynapsys.GestionEntretienService.entities.Candidat;
+import de.cynapsys.GestionEntretienService.entities.Entretienexamen;
 import de.cynapsys.GestionEntretienService.entities.Rendezvous;
+import de.cynapsys.GestionEntretienService.serviceImpl.EmailSenderServiceImpl;
 import de.cynapsys.GestionEntretienService.services.RendezVousService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +16,9 @@ public class RendezVousRestService {
 
 	@Autowired
 	private RendezVousService rendezVousService;
+
+	@Autowired
+	private EmailSenderServiceImpl emailSenderService;
 
 	@RequestMapping(value = "/rendezvous/addRendezVous", method = RequestMethod.POST)
 	@ResponseBody
@@ -73,6 +78,12 @@ public class RendezVousRestService {
 	@ResponseBody
 	public void findById(@PathVariable("id") int id) {
 		rendezVousService.findById(id);
+	}
+
+	@RequestMapping(value="/rendezvous/sendMail",method=RequestMethod.POST)
+	@ResponseBody
+	public boolean sendMail(@RequestBody Rendezvous rendezvous) {
+		return emailSenderService.sendRdv(rendezvous);
 	}
 
 }

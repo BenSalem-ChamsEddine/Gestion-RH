@@ -1,6 +1,7 @@
 package de.cynapsys.GestionEntretienService.serviceImpl;
 
 import de.cynapsys.GestionEntretienService.entities.Entretienexamen;
+import de.cynapsys.GestionEntretienService.entities.Rendezvous;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -44,6 +45,24 @@ public class EmailSenderServiceImpl  {
         }
     }
 
+    public boolean sendRdv(Rendezvous rendezvous) {
+        MimeMessagePreparator messagePreparator = mimeMessage -> {
+            MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
+            messageHelper.setFrom("bensalemchams@gmail.com");
+            messageHelper.setTo(rendezvous.getCandidat().getEmail());
+            messageHelper.setSubject("Entretien chez Cynapsys Tunisie");
+            String content = buildRdv(rendezvous);
+            messageHelper.setText(content, true);
+        };
+        try {
+            javaMailSender.send(messagePreparator);
+            return true;
+        } catch (MailException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
     public String build(Entretienexamen entretienexamen) {
         Context context = new Context();
         context.setVariable("nomCandidat", entretienexamen.getEntretien().getCandidat().getNom());
@@ -51,6 +70,13 @@ public class EmailSenderServiceImpl  {
         context.setVariable("typeExamen", entretienexamen.getExamen().getType());
         context.setVariable("resultat", entretienexamen.getResultat());
         return templateEngine.process("email", context);
+    }
+
+    public String buildRdv(Rendezvous rendezvous) {
+        Context context = new Context();
+        context.setVariable("prenomCandidat", rendezvous.getCandidat().getPrenom());
+        context.setVariable("dateEntretien", rendezvous.getDateexamen());
+        return templateEngine.process("emailrdv", context);
     }
 
 }

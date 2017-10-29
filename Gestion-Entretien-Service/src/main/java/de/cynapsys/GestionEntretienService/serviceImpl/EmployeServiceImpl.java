@@ -16,6 +16,7 @@ public class EmployeServiceImpl implements EmployeService {
 
     @Autowired
     EmployeRepository employeRepository;
+
     @Override
     public Employe findById(Long id) {
         return employeRepository.findById(id);

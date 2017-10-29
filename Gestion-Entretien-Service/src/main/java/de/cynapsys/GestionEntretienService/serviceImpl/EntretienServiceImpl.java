@@ -19,6 +19,7 @@ public class EntretienServiceImpl implements EntretienService {
 
     @Autowired
     EntretienRepository entretienRepository;
+
     @Override
     public Entretien saveEntretien(Entretien c) {
         return entretienRepository.save(c);

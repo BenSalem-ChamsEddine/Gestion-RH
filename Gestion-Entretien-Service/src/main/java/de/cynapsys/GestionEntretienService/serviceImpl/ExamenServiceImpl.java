@@ -17,6 +17,7 @@ public class ExamenServiceImpl implements ExamenService {
 
     @Autowired
     ExamenRepository examenRepository;
+
     @Override
     public Examen saveExamen(Examen c) {
         return examenRepository.save(c);
