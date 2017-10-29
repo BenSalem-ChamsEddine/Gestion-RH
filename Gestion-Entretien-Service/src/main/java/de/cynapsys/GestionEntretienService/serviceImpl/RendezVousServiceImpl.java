@@ -53,7 +53,7 @@ public class RendezVousServiceImpl implements RendezVousService {
         candidatService.saveCandidat(candidat);
         rendezVousRepository.save(rendezvous);
         entretienService.updateEntretien(entretien);
-        
+
         emailSenderService.sendRdv(rendezvous);
         return rendezvous;
     }

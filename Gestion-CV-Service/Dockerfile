@@ -1,6 +1,6 @@
 FROM openjdk:8-jdk-alpine
 
-ENV JAVA_OPTS=""
+ENV JAVA_OPTS="-Djava.awt.headless=true"
 
 ADD target/Gestion-CV-Service-0.0.1-SNAPSHOT.jar app.jar
 
