@@ -14,6 +14,6 @@ public interface EntretienService {
 	void removeEntretien(Entretien c);
 	void removeEntretienById(int id);
 	List<Entretien> findByDate(Date d);
-	List<Entretien> findByCandidat(Candidat c);
+	List<Entretien> findByCandidat(int id);
 	Entretien findById(int id);
 }

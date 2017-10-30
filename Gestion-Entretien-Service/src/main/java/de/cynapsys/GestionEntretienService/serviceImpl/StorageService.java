@@ -16,7 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Service
 public class StorageService {
     Logger log = LoggerFactory.getLogger(this.getClass().getName());
-    private final Path rootLocation = Paths.get("C:\\Users\\Chams Eddine\\.WebStorm2017.1\\ng2-admin\\src\\app\\files");
+    private final Path rootLocation = Paths.get(System.getProperty("user.home"),"upload");
 
     public void store(MultipartFile file){
         init();

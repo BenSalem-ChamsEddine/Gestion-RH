@@ -10,7 +10,7 @@
 			<staticText>
 				<reportElement x="34" y="0" width="293" height="24" forecolor="#339900" uuid="676da3c6-8e46-4f5e-89b5-45f9c53cf9f0"/>
 				<textElement>
-					<font fontName="Arial" size="20" isBold="true" isItalic="true"/>
+					<font fontName="Serif" size="20" isBold="true" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[COMPETENCES TECHNIQUES]]></text>
 			</staticText>

@@ -10,7 +10,7 @@
 			<staticText>
 				<reportElement x="37" y="0" width="137" height="24" forecolor="#339900" uuid="4571a320-20d6-4f8f-8c72-a4d4c88b3f4b"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Arial" size="20" isBold="true" isItalic="true"/>
+					<font fontName="Serif" size="20" isBold="true" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[LANGUE]]></text>
 			</staticText>

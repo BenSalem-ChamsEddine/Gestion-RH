@@ -11,7 +11,7 @@
 			<staticText>
 				<reportElement x="20" y="0" width="137" height="24" forecolor="#339900" uuid="222fc652-bfc9-49a8-b1af-0f2c13e7dd48"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="20" isBold="true" isItalic="true"/>
+					<font fontName="Serif" size="20" isBold="true" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[FORMATIONS]]></text>
 			</staticText>

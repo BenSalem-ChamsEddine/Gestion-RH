@@ -51,7 +51,9 @@ public class EntretienServiceImpl implements EntretienService {
     }
 
     @Override
-    public List<Entretien> findByCandidat(Candidat c) {
+    public List<Entretien> findByCandidat(int id) {
+        Candidat c = new Candidat();
+        c.setId(id);
         return entretienRepository.findByCandidat(c);
     }
 

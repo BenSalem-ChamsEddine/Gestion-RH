@@ -45,10 +45,10 @@ public class EntretienRestService {
 		entretienService.removeEntretienById(id);
 	}
 
-	@RequestMapping(value="/entretiens/findByCandidat",method=RequestMethod.GET)
+	@RequestMapping(value="/entretiens/findByCandidat/{id}",method=RequestMethod.GET)
 	@ResponseBody
-	public List<Entretien> findByCandidat(@RequestBody Candidat candidat) {
-		return entretienService.findByCandidat(candidat);
+	public List<Entretien> findByCandidat(@PathVariable("id") int id) {
+		return entretienService.findByCandidat(id);
 	}
 
 	@RequestMapping(value="/entretiens/findByDate/{date}",method=RequestMethod.GET)

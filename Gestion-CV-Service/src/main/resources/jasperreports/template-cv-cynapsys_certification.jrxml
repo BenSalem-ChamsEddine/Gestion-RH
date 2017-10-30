@@ -11,7 +11,7 @@
 			<staticText>
 				<reportElement x="24" y="0" width="175" height="24" forecolor="#339900" uuid="e9551e6f-65a1-4543-81ba-06ca545e6682"/>
 				<textElement>
-					<font fontName="Arial" size="20" isBold="true" isItalic="true"/>
+					<font fontName="Serif" size="20" isBold="true" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[CERTIFICATIONS]]></text>
 			</staticText>

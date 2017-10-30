@@ -27,7 +27,7 @@
 	</style>
 	<subDataset name="Table Dataset 1" uuid="2e748a66-1df3-4478-a68a-cb278f4516ef"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["C:\\Users\\Chams Eddine\\Desktop\\template CV cynapsys\\"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["src/main/resources/jasperreports/"]]></defaultValueExpression>
 	</parameter>
 	<field name="nom" class="java.lang.String"/>
 	<field name="niveauExperience" class="java.lang.String"/>
@@ -40,7 +40,7 @@
 		<band height="80" splitType="Stretch">
 			<image>
 				<reportElement x="0" y="11" width="225" height="69" uuid="6e7fe423-d04e-402e-988b-532a7166cacd"/>
-				<imageExpression><![CDATA["C:\\Users\\Chams Eddine\\Desktop\\template CV cynapsys\\logo-cynapsys.png"]]></imageExpression>
+				<imageExpression><![CDATA["http://www.cynapsys.de/Newsletter/JUIN_2016/img/Logo-Cynapsys-transparent.png"]]></imageExpression>
 			</image>
 		</band>
 	</title>
